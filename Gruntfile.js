@@ -67,7 +67,7 @@ module.exports = function (grunt) {
             },
             develop: {
                 files: 'app/**',
-                tasks: ['concat']
+                tasks: ['jshint', 'concat', 'uglify']
             }
         }
     });

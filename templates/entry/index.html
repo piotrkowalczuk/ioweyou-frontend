@@ -7,17 +7,17 @@
 </div>
 <div class="row">
     <div class="col-lg-8 col-md-8">
-        <ul class="pager" ng-show="entries.length">
+        <ul class="pager" ng-show="nbOfPages()">
             <li class="previous"><a ng-hide="page <= 0" ng-click="prevPage()">&larr; Page {{ page }}</a></li>
             <li>Page {{ page + 1 }}/{{ nbOfPages() | number:0 }}</li>
-            <li class="next"><a ng-hide="page >= nbOfPages()" ng-click="nextPage()">Page {{ page + 2 }} &rarr;</a></li>
+            <li class="next"><a ng-hide="(page + 1) >= nbOfPages()" ng-click="nextPage()">Page {{ page + 2 }} &rarr;</a></li>
         </ul>
         <ul class="list-unstyled">
             <li ng-repeat="entry in entries" class="animation">
                 <div ng-include=" 'templates/entry/table.html' "></div>
             </li>
         </ul>
-        <div class="alert alert-info" ng-hide="entries.length">Brak wpisów dla podanych filtrów.</div>
+        <div class="alert alert-info" ng-hide="nbOfPages() ">Brak wpisów dla podanych filtrów.</div>
     </div>
     <div class="col-lg-4 col-md-4">
         <div class="row">
