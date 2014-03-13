@@ -29,6 +29,7 @@ angular.module('IOUApp').controller('AuthenticationController',
             if($location.path() === route) {
                 return 'active'
             }
+            return false;
         }
     }]
 );

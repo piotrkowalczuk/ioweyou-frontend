@@ -18,6 +18,9 @@
             <li ng-repeat="entry in entries" class="animation">
                 <div ng-include=" 'templates/entry/table.html' "></div>
             </li>
+            <li ng-hide="entries.length">
+                <div>Brak transakcji.</div>
+            </li>
         </ul>
     </tab>
 </tabset>

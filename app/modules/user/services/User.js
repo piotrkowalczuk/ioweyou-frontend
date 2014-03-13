@@ -1,20 +1,20 @@
 angular.module('IOUApp')
 
-    .factory('User', function($rootScope, $location, $cookieStore) {
+    .factory('User', function ($rootScope, $location, $cookieStore) {
 
-        var login = function(userData) {
+        var login = function (userData) {
             setUserData(userData);
             $rootScope.$broadcast('login');
             $location.path('/');
         }
 
-        var logout = function() {
+        var logout = function () {
             removeUserData();
             $rootScope.$broadcast('logout');
             $location.path('/splash');
         }
 
-        var getUserData = function() {
+        var getUserData = function () {
             return $cookieStore.get('userData');
         }
 
@@ -26,34 +26,28 @@ angular.module('IOUApp')
             $cookieStore.remove('userData');
         };
 
-        var getUserProperty = function(property) {
+        var getUserProperty = function (property) {
             var userData = getUserData();
 
-            if(userData) {
+            if (userData) {
                 return userData[property];
             }
 
             return null;
         };
 
-        var getUserCredentials = function() {
-            var credentials = {
+        var getUserCredentials = function () {
+            return {
                 apiToken: getUserProperty('ioweyouToken'),
                 uid: getUserProperty('ioweyouId')
             };
-
-            return credentials;
         };
 
-        var isLogged = function() {
+        var isLogged = function () {
             var apiToken = getUserProperty('ioweyouToken');
             var uid = getUserProperty('ioweyouId');
 
-            if(apiToken && uid) {
-                return true;
-            }
-
-            return false;
+            return apiToken && uid;
         };
 
         return {
@@ -66,7 +60,5 @@ angular.module('IOUApp')
             getUserCredentials: getUserCredentials,
             isLogged: isLogged
         }
-
-
     }
 );
