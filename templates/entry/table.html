@@ -42,7 +42,10 @@
                     </span>
         </td>
         <td style="width: 100px; text-align: right;">
-            {{ getStatus(entry.status) }}
+            <a ng-if="!isAcceptable" class="disabled" title="{{ getStatus(entry.status) }}"><span class="glyphicon glyphicon-ok"></span></a>
+            <a ng-if="isAcceptable" ng-click="acceptEntry()"><span class="glyphicon glyphicon-ok"></span></a>
+            <a ng-if="!isRejectable" class="disabled" title="{{ getStatus(entry.status) }}, nie można odrzucić"><span class="glyphicon glyphicon-remove"></span></a>
+            <a ng-if="isRejectable" ng-click="rejectEntry()"><span class="glyphicon glyphicon-remove"></span></a>
         </td>
     </tr>
 </table>
