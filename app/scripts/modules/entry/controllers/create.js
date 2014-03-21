@@ -4,7 +4,7 @@ angular.module('IOUApp').controller(
         '$scope',
         '$location',
         'Entry',
-        'UserEntry',
+        'UserFactory',
         function($scope, $location, Entry, UserFactory) {
 
             $scope.buttonSave = {

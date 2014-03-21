@@ -42,7 +42,7 @@ angular.module('IOUApp', ['ngRoute', 'ezfb', 'ngCookies', 'ngAnimate', 'ui.boots
 
         $httpProvider.interceptors.push('HttpResponseInterceptor');
     })
-    .run( function($rootScope, $location, User ) {
+    .run( function($rootScope, $location, User) {
         $rootScope.$on("$routeChangeStart", function (event, next, current) {
             if (next.publicAccess) {
                 return;

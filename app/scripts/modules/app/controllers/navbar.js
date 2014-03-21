@@ -6,6 +6,8 @@ angular.module('IOUApp').controller(
         function NavbarController( $scope, User ) {
             'use strict';
 
+            $scope.user = User;
+
             $scope.$on('login', function onLogin(event, data) {
                 $scope.fetchUserData();
             });

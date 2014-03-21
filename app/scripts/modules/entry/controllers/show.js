@@ -2,11 +2,12 @@ angular.module('IOUApp').controller(
     'EntryShowController',
     [
         '$scope',
-        '$routeParam',
+        '$routeParams',
         '$location',
         'Entry',
         'User',
         function($scope, $routeParams, $location, Entry, User) {
+
             $scope.userData = User.getUserData();
             $scope.entry = {};
             $scope.formData = {};
@@ -160,7 +161,7 @@ angular.module('IOUApp').controller(
             };
 
             $scope.hasError = function hasError(fieldName) {
-                if($scope.formErrors[fieldName]) {
+                if ($scope.formErrors[fieldName]) {
                     return true;
                 }
 
