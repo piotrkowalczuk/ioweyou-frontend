@@ -1,5 +1,5 @@
 <ol class="breadcrumb">
-    <li><a href="#/">Tablica</a></li>
+    <li><a href="/">Tablica</a></li>
     <li class="active">Transakcje</li>
 </ol>
 <div class="page-header">
@@ -14,19 +14,19 @@
         </ul>
         <ul class="list-unstyled">
             <li ng-repeat="entry in entries" class="animation">
-                <div ng-include=" 'views/entry/table.html' "></div>
+                <div ng-include=" '/views/entry/table.html' "></div>
             </li>
         </ul>
         <div class="alert alert-info" ng-hide="nbOfPages() ">Brak wpisów dla podanych filtrów.</div>
     </div>
     <div class="col-lg-4 col-md-4">
         <div class="row">
-            <div class="col-lg-12 entry-filters" ng-include=" 'views/entry/summary.html' ">
+            <div class="col-lg-12 entry-filters" ng-include=" '/views/entry/summary.html' ">
 
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-12 entry-filters" ng-include=" 'views/entry/filters.html' ">
+            <div class="col-lg-12 entry-filters" ng-include=" '/views/entry/filters.html' ">
 
             </div>
         </div>

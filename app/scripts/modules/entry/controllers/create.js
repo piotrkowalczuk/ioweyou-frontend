@@ -57,7 +57,7 @@ angular.module('IOUApp').controller(
             };
 
             $scope.hasError = function hasError(fieldName) {
-                if($scope.formErrors[fieldName]) {
+                if ($scope.formErrors[fieldName]) {
                     return true;
                 }
 
