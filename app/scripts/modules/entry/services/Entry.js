@@ -5,63 +5,45 @@ angular.module('IOUApp').factory(
         'User',
         function($http, User) {
 
-            var credentials = User.getUserCredentials;
-
             var status = ['Otwarte', 'Zaakceptowane', 'Odrzucone', 'Usunięte'];
 
             return {
                 get : function(params) {
                     params = params || {};
-                    params.apiToken = credentials().apiToken;
-                    params.uid = credentials().uid;
 
-                    return $http.get('/api/entry',{
+                    return $http.get('/api/entries',{
                         params: params
                     });
                 },
                 getOne : function(id) {
-                    return $http.get('/api/entry/' + id, {
-                        params: credentials()
-                    });
+                    return $http.get('/api/entry/' + id);
                 },
                 count : function(params) {
                     params = params || {};
-                    params.apiToken = credentials().apiToken;
-                    params.uid = credentials().uid;
 
-                    return $http.get('/api/entry/count', {
+                    return $http.get('/api/entries/count', {
                         params: params
                     });
                 },
                 create : function(entry) {
-                    entry.apiToken = credentials().apiToken;
-                    entry.uid = credentials().uid;
-
-                    return $http.put('/api/entry', entry);
+                    return $http.post('/api/entries', entry);
                 },
                 modify : function(entryId, data) {
-                    data.apiToken = credentials().apiToken;
-                    data.uid = credentials().uid;
-
-                    return $http.post('/api/entry/'+entryId, data);
+                    return $http.put('/api/entry/'+entryId, data);
                 },
                 accept : function(id) {
-                    return $http.post('/api/entry/accept/' + id, credentials());
+                    return $http.post('/api/entry/accept/' + id);
                 },
                 reject : function(id) {
-                    return $http.post('/api/entry/reject/' + id, credentials());
+                    return $http.post('/api/entry/reject/' + id);
                 },
                 delete : function(id) {
-                    return $http.delete('/api/entry/' + id, {
-                        params: credentials()
-                    });
+                    return $http.delete('/api/entry/' + id);
                 },
                 getSummary : function(params) {
                     params = params || {};
-                    params.apiToken = credentials().apiToken;
-                    params.uid = credentials().uid;
 
-                    return $http.get('/api/entry/summary', {
+                    return $http.get('/api/entries/summary', {
                         params: params
                     });
                 },

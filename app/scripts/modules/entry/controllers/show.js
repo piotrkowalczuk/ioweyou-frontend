@@ -29,7 +29,6 @@ angular.module('IOUApp').controller(
             };
 
             var fetchEntry = function() {
-
                 Entry.getOne($routeParams.id)
                     .success(function(entry) {
                         $scope.entry = entry;

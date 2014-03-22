@@ -42,10 +42,7 @@ angular.module('IOUApp')
                 };
 
                 var getUserCredentials = function () {
-                    return {
-                        apiToken: getUserProperty('ioweyouToken'),
-                        uid: getUserProperty('ioweyouId')
-                    };
+                    return getUserProperty('ioweyouToken')
                 };
 
                 var isLogged = function () {

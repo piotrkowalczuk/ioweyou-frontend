@@ -2,10 +2,7 @@ angular.module('IOUApp').factory(
     'UserFactory',
     [
         '$http',
-        'User',
-        function($http, User) {
-
-            var credentials = User.getUserCredentials;
+        function($http) {
 
             return {
                 get : function(id) {
@@ -18,9 +15,7 @@ angular.module('IOUApp').factory(
                     return $http.delete('/api/user/' + id);
                 },
                 getFriends : function() {
-                    return $http.get('/api/user/friends',{
-                        params: credentials()
-                    });
+                    return $http.get('/api/user/friends');
                 }
             };
         }

@@ -12,6 +12,10 @@ angular.module('IOUApp').factory(
 //                    }
 //
 //                    return $q.reject(rejection);
+                },
+                request: function($config) {
+                    $config.headers['Authorization'] = User.getUserCredentials();
+                    return $config;
                 }
             }
         }
