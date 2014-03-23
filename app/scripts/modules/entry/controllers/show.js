@@ -105,9 +105,13 @@ angular.module('IOUApp').controller(
 
             var acceptEntry = function() {
                 Entry.accept($scope.entry.id)
-                    .success(function(){
-                        $scope.$emit('flashMessage', 'success', 'Entry accepted successfully.');
-                        fetchEntry();
+                    .success(function(data){
+                        if(data.isModified) {
+                            $scope.$emit('flashMessage', 'success', 'Entry accepted successfully.');
+                            fetchEntry();
+                        } else {
+                            $scope.$emit('flashMessage', 'danger', 'Entry was not accepted.');
+                        }
                     });
             };
 

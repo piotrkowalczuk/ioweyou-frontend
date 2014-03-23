@@ -29,7 +29,7 @@ angular.module('IOUApp').factory(
                     return $http.post('/api/entries', entry);
                 },
                 modify : function(entryId, data) {
-                    return $http.patch('/api/entry/'+entryId, data);
+                    return $http({method: 'PATCH', url: '/api/entry/'+entryId, data: data});
                 },
                 accept : function(id) {
                     return $http.post('/api/entry/accept/' + id);
